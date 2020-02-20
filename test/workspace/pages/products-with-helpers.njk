@@ -1,0 +1,12 @@
+{% import "helpers.njk" as helpers %}
+{% include "header.njk" %}
+
+<h1>Products:</h1>
+
+<ul>
+  {% for product in products %}
+    <li>{{ helpers.renderProduct(product) }}</li>
+  {% endfor %}
+</ul>
+
+{% include "footer.njk" %}
