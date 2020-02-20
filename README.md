@@ -2,7 +2,7 @@
 
 ## Nunjucks engine interface
 
-[![npm (scoped)](https://img.shields.io/npm/v/jimlambie/web-nunjucks.svg?maxAge=10800&style=flat-square)](https://www.npmjs.com/package/jimlambie/web-nunjucks)
+[![npm (scoped)](https://img.shields.io/npm/v/web-nunjucks.svg?maxAge=10800&style=flat-square)](https://www.npmjs.com/package/web-nunjucks)
 [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
 This module allows [Nunjucks](https://mozilla.github.io/nunjucks/) templates to be used with [DADI Web](https://github.com/dadi/web).
