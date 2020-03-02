@@ -72,20 +72,12 @@ module.exports = () => {
 
     this.env = nunjucks.configure(templateSearchPaths, { watch: true })
 
-    return this._requireDirectory(partialsPath, ENGINE.extensions)
+    return this._loadPartials()
       .then(partials => {
-        partials.forEach(partial => {
-          this.register(path.basename(partial).replace('.njk', ''))
-        })
-
         debug('partials loaded %o', partials)
 
         return this._requireDirectory(this.pagesPath, ENGINE.extensions)
           .then(templates => {
-            templates.forEach(template => {
-              this.register(path.basename(template).replace('.njk', ''))
-            })
-
             debug('templates loaded %o', templates)
 
             return this._requireDirectory(helpersPath, ENGINE.extensions)
@@ -94,17 +86,22 @@ module.exports = () => {
                   this.register(path.basename(helper).replace('.njk', ''))
                 })
 
+                debug('helpers loaded %o', helpers)
+
                 return this._requireDirectory(filtersPath, ['.js'])
                   .then(filters => {
                     filters.forEach(filter => {
                       this.env.addFilter(path.basename(filter).replace('.js', ''), require(filter))
                     })
 
+                    debug('filters loaded %o', filters)
+
                     debug('Nunjucks initialised')
                   })
               })
           })
       })
+    // })
   }
 
   /**
@@ -146,7 +143,7 @@ module.exports = () => {
             const templateName = path.relative(this.pagesPath, file)
               .slice(0, -extension.length)
 
-            this.registerPartial(templateName, data)
+            this.register(templateName)
 
             resolve(templateName)
           })
