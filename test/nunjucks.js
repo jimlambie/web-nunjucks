@@ -1,13 +1,14 @@
 'use strict'
 
-const fs = require('fs')
 const htmlLooksLike = require('html-looks-like')
 const path = require('path')
+/* eslint-disable no-unused-vars */
 const should = require('should')
+/* eslint-enable no-unused-vars */
 const helpers = require(path.join(__dirname, '/helpers/index'))
 
 const config = require(path.join(__dirname, '/helpers/config'))
-let engine
+// let engine
 let factory
 
 describe('Nunjucks interface', function () {
@@ -17,12 +18,12 @@ describe('Nunjucks interface', function () {
 
     factory = require(helpers.paths.engine)
 
-    engine = {
-      extensions: factory.metadata.extensions,
-      handle: factory.metadata.handle,
-      factory: factory,
-      started: false
-    }
+    // engine = {
+    //   extensions: factory.metadata.extensions,
+    //   handle: factory.metadata.handle,
+    //   factory: factory,
+    //   started: false
+    // }
 
     done()
   })
@@ -35,9 +36,11 @@ describe('Nunjucks interface', function () {
   })
 
   it('should contain a metadata block with handle and extensions', done => {
+    /* eslint-disable no-unused-expressions */
     factory.metadata.should.be.Object
     factory.metadata.handle.should.be.String
     factory.metadata.extensions.should.be.Array
+    /* eslint-enable no-unused-expressions */
 
     done()
   })
