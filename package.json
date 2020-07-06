@@ -1,6 +1,6 @@
 {
   "name": "web-nunjucks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Nunjucks interface for DADI Web",
   "main": "index.js",
   "scripts": {

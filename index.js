@@ -98,10 +98,19 @@ module.exports = () => {
 
                     debug('Nunjucks initialised')
                   })
+                  .catch(err => {
+                    throw (err)
+                  })
+              })
+              .catch(err => {
+                throw (err)
               })
           })
       })
-    // })
+      .catch(err => {
+        console.log('Nunjucks load error', err)
+        process.exit(1)
+      })
   }
 
   /**
