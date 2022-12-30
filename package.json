@@ -30,7 +30,7 @@
     "colors": "^1.1.2",
     "env-test": "^1.0.0",
     "html-looks-like": "latest",
-    "mocha": "6.2.3",
+    "mocha": "10.2.0",
     "nyc": "latest",
     "object-path": "^0.11.4",
     "should": "~4.0.4",
